@@ -66,12 +66,12 @@ export default function CustomSidebar() {
 
   return (
     <Sidebar className="bg-none text-center mx-auto border-none shadow-none">
-      <div className="bg-[#ff6767] h-screen w-[365px] m-auto rounded-br-lg rounded-tr-xl shadow-sm flex flex-col">
+      <div className="bg-[#ff6767] h-[868px] w-[365px] m-auto rounded-br-lg rounded-tr-xl mt-20 shadow-sm flex flex-col relative">
         <SidebarContent>
           <SidebarGroup>
             {/* Profile Section */}
             <SidebarGroupLabel className="mx-auto mt-6">
-              <div className="">
+              <div className=" mt-7">
                 <h1 className="font-semibold text-[16px] text-white">
                   Sundar Gurung
                 </h1>
@@ -128,6 +128,9 @@ export default function CustomSidebar() {
             <span>Exit</span>
           </Link>
         </SidebarFooter>
+      </div>
+      <div className="absolute top-10 left-35">
+        <Image src="/Profile.png" alt="" width={80} height={32} />
       </div>
     </Sidebar>
   );
