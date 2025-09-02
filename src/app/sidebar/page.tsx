@@ -8,10 +8,8 @@ import Link from "next/link";
 
 export default function page() {
   return (
-    <SidebarProvider>
-      <Sidebar className="">
-        <CustomSidebar />
-      </Sidebar>
+    <SidebarProvider className="bg-red">
+      <CustomSidebar />
     </SidebarProvider>
   );
 }

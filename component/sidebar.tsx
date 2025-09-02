@@ -1,7 +1,8 @@
-import React from "react";
-import { Calendar, Home, Inbox, Search, Settings, LogOut } from "lucide-react";
-
+"use client";
+import { useState } from "react";
+import { Calendar, Inbox, LogOut, Search, Settings } from "lucide-react";
 import {
+  Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
@@ -9,89 +10,125 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarFooter,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import Custombutton from "./custombutton";
+import Image from "next/image";
 
-// Menu items.
+// Menu items
 const items = [
   {
     title: "Dashboard",
     url: "#",
-    icon: Home,
-    className: "my-1 w-64 p-2 ",
+    img1: "/Dashboard.png", // inactive
+    img2: "/WhiteDashboard.png", // active
+    type: "image",
   },
   {
     title: "Vital Task",
     url: "#",
-    icon: Inbox,
-    className: "my-1 w-64 p-2",
+    img1: "/Dashboard.png", // inactive
+    img2: "/WhiteDashboard.png", // active
+    type: "image",
   },
   {
     title: "My Task",
     url: "#",
-    icon: Calendar,
-    className: "my-1 w-64 p-2",
+    img1: "/Dashboard.png", // inactive
+    img2: "/WhiteDashboard.png", // active
+    type: "image",
   },
   {
     title: "Task Categories",
     url: "#",
-    icon: Search,
-    className: "my-1 w-64 p-2",
+    img1: "/Dashboard.png", // inactive
+    img2: "/WhiteDashboard.png", // active
+    type: "image",
   },
   {
     title: "Settings",
     url: "#",
-    icon: Settings,
-    className: "my-1 w-64 p-2",
+    img1: "/Dashboard.png", // inactive
+    img2: "/WhiteDashboard.png", // active
+    type: "image",
   },
   {
     title: "Help",
     url: "#",
-    icon: Settings,
-    className: "my-1 w-64 p-2",
-  },
-  {
-    title: "Exit",
-    url: "#",
-    icon: LogOut,
-    className: "mt-22  w-64 p-2",
+    img1: "/Dashboard.png", // inactive
+    img2: "/WhiteDashboard.png", // active
+    type: "image",
   },
 ];
 
-const CustomSidebar = () => {
+export default function CustomSidebar() {
+  const [active, setActive] = useState("Dashboard");
+
   return (
-    <div className=" ">
-      <div className="bg-[#ff6767] my-2 rounded-br-[8px] rounded-tr-[8px] w-[365px] h-[868px]">
-        <div className=" ">
-          <h1 className="font-semibold text-center text-[16px] mx-10 text-white">
-            Sundar Gurung
-          </h1>
-          <p className="text-[16px] text-center font-normal text-white">
-            sundargurung360@gmail.com
-          </p>
-        </div>
+    <Sidebar className="bg-none text-center mx-auto border-none shadow-none">
+      <div className="bg-[#ff6767] h-screen w-[365px] m-auto rounded-br-lg rounded-tr-xl shadow-sm flex flex-col">
+        <SidebarContent>
+          <SidebarGroup>
+            {/* Profile Section */}
+            <SidebarGroupLabel className="mx-auto mt-6">
+              <div className="">
+                <h1 className="font-semibold text-[16px] text-white">
+                  Sundar Gurung
+                </h1>
+                <p className="text-[12px] text-white">
+                  sundargurung360@gmail.com
+                </p>
+              </div>
+            </SidebarGroupLabel>
 
-        <SidebarMenu className="align-center mx-15 ">
-          {items.map((item) => (
-            <div className=" text-white">
-              <SidebarMenuItem key={item.title} className={item.className}>
-                <SidebarMenuButton asChild>
-                  <Link href={item.url}>
-                    <item.icon />
-                    <span className="mx-8  text-[16px] font-medium ">
-                      {item.title}
-                    </span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </div>
-          ))}
-        </SidebarMenu>
+            {/* Menu Items */}
+            <SidebarGroupContent className="mt-10">
+              <SidebarMenu>
+                {items.map((item) => (
+                  <SidebarMenuItem key={item.title} className="w-60 mx-auto">
+                    <SidebarMenuButton asChild>
+                      <Link
+                        href={item.url}
+                        className={`flex items-center gap-4 p-5 mt-5 rounded-lg transition ${
+                          active === item.title
+                            ? "bg-white text-[#ff6767]"
+                            : "text-white hover:bg-white/10"
+                        }`}
+                        onClick={() => setActive(item.title)}
+                      >
+                        {/* Icon or Image */}
+
+                        {item.type === "image" && (
+                          <Image
+                            src={active === item.title ? item.img1 : item.img2}
+                            alt={item.title}
+                            width={20}
+                            height={20}
+                          />
+                        )}
+                        <span className="text-[16px] font-medium">
+                          {item.title}
+                        </span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
+
+        {/* Footer (Exit button) */}
+        <SidebarFooter className="mt-auto mb-6">
+          <Link
+            href="#"
+            className="flex items-center justify-center gap-2 text-white hover:bg-white/10 py-3 rounded-lg"
+          >
+            <LogOut size={20} />
+            <span>Exit</span>
+          </Link>
+        </SidebarFooter>
       </div>
-      <div className=""></div>
-    </div>
+    </Sidebar>
   );
-};
-
-export default CustomSidebar;
+}
