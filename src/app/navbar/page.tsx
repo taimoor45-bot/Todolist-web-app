@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
-const Page = () => {
+const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -168,4 +168,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Navbar;

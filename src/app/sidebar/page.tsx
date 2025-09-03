@@ -1,15 +1,17 @@
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 import CustomSidebar from "../../../component/sidebar";
 
-import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import Link from "next/link";
 
 // Menu items.
 
-export default function page() {
+export default function Sidebar() {
   return (
-    <SidebarProvider className="bg-red">
-      <CustomSidebar />
-    </SidebarProvider>
+    <div className="bg-transparent">
+      <SidebarProvider className="bg-transparent border-none">
+        <CustomSidebar />
+      </SidebarProvider>
+    </div>
   );
 }
