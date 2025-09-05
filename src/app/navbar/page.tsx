@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -8,11 +8,35 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dayName, setDayName] = useState("");
+  const [formattedDate, setFormattedDate] = useState("");
+
+  useEffect(() => {
+    const today = new Date();
+
+    // Get day name
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    setDayName(days[today.getDay()]);
+
+    // Format date as YYYY-MM-DD
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const date = String(today.getDate()).padStart(2, "0");
+    setFormattedDate(`${date}-${month}-${year}`);
+  }, []);
 
   return (
-    <div className="bg-[#F8F8F8] shadow-md">
+    <div className="">
       {/* HEADER */}
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header className="absolute inset-x-0 top-0 z-50 bg-[#F8F8F8] shadow-[0_4px_12px_0_rgba(0,0,0,0.07)]">
         <nav
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
@@ -78,9 +102,9 @@ const Navbar = () => {
 
               {/* Date */}
               <div className="font-medium ">
-                <p className="text-[15px]">Tuesday</p>
+                <p className="text-[15px]">{dayName}</p>
                 <p className="text-[14px] text-[var(--bright-sky-blue)]">
-                  20/06/2023
+                  {formattedDate}
                 </p>
               </div>
             </div>
@@ -153,9 +177,9 @@ const Navbar = () => {
 
                   {/* Date */}
                   <div className="font-medium ">
-                    <p className="text-[15px] text-black">Tuesday</p>
+                    <p className="text-[15px] text-black">{dayName}</p>
                     <p className="text-[14px] text-[var(--bright-sky-blue)]">
-                      20/06/2023
+                      {formattedDate}
                     </p>
                   </div>
                 </div>

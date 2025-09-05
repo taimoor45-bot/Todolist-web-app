@@ -1,5 +1,5 @@
 import Navbar from "./navbar/page";
-import Sidebar from "./sidebar/page";
+import MainLayout from "./Mainlayout/page";
 
 export default function Home() {
   return (
@@ -7,8 +7,8 @@ export default function Home() {
       <div>
         <Navbar />
         <div className="">
-          <div className="mt-10">
-            <Sidebar />
+          <div className="">
+            <MainLayout />
           </div>
           <div className=""></div>
         </div>

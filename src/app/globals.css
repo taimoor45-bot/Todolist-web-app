@@ -81,6 +81,11 @@
   --Red: #ff6767;
   --red-pink: #ff6767;
   --bright-sky-blue: #3abeff;
+  --Ghost-White: #f2f5fc;
+  --Whisper-Gray: #f8f8f8;
+  --Card: #a1a3ab00;
+  --WhiteCard: #f5f8ff;
+  --neutral-gray: #a1a3ab;
 }
 
 .dark {
@@ -115,4 +120,7 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+body {
+  background-color: var(--Ghost-White);
 }

@@ -80,8 +80,8 @@ export default function CustomSidebar() {
 
   return (
     <>
-      <div className="mt-25">
-        <div className="bg-[#ff6767] h-screen w-[365px] relative  pb-5 rounded-tr-xl rounded-br-lg shadow-sm flex flex-col ">
+      <div className="mt-35">
+        <div className="bg-[#ff6767] h-screen w-[325px] relative  pb-5 rounded-tr-xl rounded-br-lg shadow-sm flex flex-col ">
           {/* Profile */}
           <div className="mx-auto mt-10">
             <h1 className="font-semibold text-[16px] text-white">
@@ -114,7 +114,7 @@ export default function CustomSidebar() {
             ))}
           </nav>
         </div>
-        <div className=" absolute top-25 left-32">
+        <div className=" absolute top-35 left-25">
           {" "}
           <Image src="/Profile.png" alt="" width={80} height={32} />{" "}
         </div>
