@@ -3,14 +3,13 @@ import MainLayout from "./Mainlayout/page";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="overflow-hidden">
       <div>
         <Navbar />
         <div className="">
           <div className="">
             <MainLayout />
           </div>
-          <div className=""></div>
         </div>
       </div>
     </main>

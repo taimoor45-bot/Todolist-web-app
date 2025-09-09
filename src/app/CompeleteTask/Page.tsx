@@ -1,7 +1,7 @@
 import React from "react";
 import TaskCard from "../../../component/TaskCard";
 import TaskButton from "../../../component/Task";
-import Custombutton from "../../../component/custombutton";
+import CustomButton from "../../../component/CustomButton";
 
 const CompleteTask = () => {
   return (

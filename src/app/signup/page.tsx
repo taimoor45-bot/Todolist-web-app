@@ -1,9 +1,9 @@
 "use client";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Image from "../../../component/Image";
-import Userinput from "../../../component/input";
+import UserInput from "../../../component/Input";
 import { Checkbox } from "@/components/ui/checkbox";
-import Custombutton from "../../../component/custombutton";
+import CustomButton from "../../../component/CustomButton";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/firbaseConfig";
@@ -54,42 +54,42 @@ const Page = () => {
               Sign Up
             </h1>
 
-            <Userinput
+            <UserInput
               type="text"
               placeholder="Enter First Name"
               icon="name.png"
               Name="FirstName"
               required
             />
-            <Userinput
+            <UserInput
               type="text"
               placeholder="Enter Last Name"
               icon="Lastname.png"
               Name="Lastname"
               required
             />
-            <Userinput
+            <UserInput
               type="email"
               placeholder="Enter Email"
               icon="email.png"
               Name="email"
               required
             />
-            <Userinput
+            <UserInput
               type="text"
               placeholder="Enter your username"
               icon="username.png"
               Name="username"
               required
             />
-            <Userinput
+            <UserInput
               type="password"
               placeholder="Enter Password"
               icon="password.png"
               Name="password"
               required
             />
-            <Userinput
+            <UserInput
               type="password"
               placeholder="Confirm Password"
               icon="Re-Password.png"
@@ -103,7 +103,7 @@ const Page = () => {
             </div>
 
             <div className=" flex justify-start my-3">
-              <Custombutton className="bg-[#FF9090]" text="Register" />
+              <CustomButton className="bg-[#FF9090]" text="Register" />
             </div>
 
             <p>

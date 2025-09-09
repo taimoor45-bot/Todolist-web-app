@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import CardDemo from "../../../component/CardDeom";
+import CardDemo from "../../../component/CardDemo";
 import TaskButton from "../../../component/Task";
 const Example = () => {
   return (
@@ -42,6 +42,7 @@ const Example = () => {
               Status="Not Started"
               image="/BirthDay.png"
               Rightimage="/Redright.png"
+              cardClass="w-[472px] rounded-[50px] h-50 my-3 border-[#A1A3AB00] border-2 bg-[var(--Card)] p-3 "
             />
             <CardDemo
               title="Attend Nischal’s Birthday Party"
@@ -50,6 +51,7 @@ const Example = () => {
               Status="Not Started"
               image="/BirthDay.png"
               Rightimage="/BlueSearchicon.png"
+              cardClass="w-[472px] rounded-[50px] h-50 my-3 border-[#A1A3AB00] border-2 bg-[var(--Card)] p-3 "
             />
 
             <CardDemo
@@ -59,6 +61,7 @@ const Example = () => {
               Status="In Progress"
               image="/Presentation.png"
               Rightimage="/BlueSearchicon.png"
+              cardClass="w-[472px] rounded-[50px] h-50 my-3 border-[#A1A3AB00] border-2 bg-[var(--Card)] p-3 "
             />
           </div>
         </div>

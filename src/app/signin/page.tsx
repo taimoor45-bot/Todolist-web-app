@@ -1,8 +1,8 @@
 import { Check } from "lucide-react";
 import Image from "../../../component/Image";
-import Userinput from "../../../component/input";
+import UserInput from "../../../component/Input";
 import { Checkbox } from "@/components/ui/checkbox";
-import Custombutton from "../../../component/custombutton";
+import CustomButton from "../../../component/CustomButton";
 
 import Link from "next/link";
 const page = () => {
@@ -22,14 +22,14 @@ const page = () => {
                 Sign In
               </h1>
 
-              <Userinput
+              <UserInput
                 type="email"
                 placeholder="Enter Email"
                 icon="email.png"
                 Name="email"
                 required
               />
-              <Userinput
+              <UserInput
                 type="password"
                 placeholder="Enter Password"
                 icon="password.png"
@@ -46,7 +46,7 @@ const page = () => {
                 </div>
               </div>
               <div className=" flex justify-start my-3">
-                <Custombutton className="bg-[#FF9090]" text="Login" />
+                <CustomButton className="bg-[#FF9090]" text="Login" />
               </div>
             </form>
             <div className="flex gap-6">

@@ -10,11 +10,12 @@ export default function CardDemo(props: {
   Priority: string;
   Status: string;
   Rightimage: string;
+  cardClass: string;
   createdOn?: string; // Added optional createdOn prop
 }) {
   return (
-    <Card className="w-[472px] rounded-[50px] h-50 my-3 border-[#A1A3AB00] border-2 bg-[var(--Card)] p-3 ">
-      <div className=" flex justify-between">
+    <Card className={props.cardClass}>
+      <div className=" flex justify-between ">
         <div className="">
           <Image
             src={props.Rightimage}
@@ -49,7 +50,7 @@ export default function CardDemo(props: {
       </CardHeader>
 
       <CardFooter>
-        <div className="flex justify-between w-full text-[12px]">
+        <div className="flex justify-between w-full text-[12px] mb-3">
           <span className="font-normal text-black">
             Priority: <span className="text-[#42ADE2]">{props.Priority}</span>
           </span>
