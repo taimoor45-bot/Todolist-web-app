@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Sidebar from "../../../component/Sidebar";
+import Sidebar from "../../../component/sidebar";
 import Dashboard from "../../../component/Dashboard";
 import VitalTask from "../../../component/VitalTask";
 import MyTask from "../../../component/MyTask";

@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import Image from "../../../component/Image";
-import UserInput from "../../../component/Input";
+import UserInput from "../../../component/input"
 import { Checkbox } from "@/components/ui/checkbox";
 import CustomButton from "../../../component/CustomButton";
 

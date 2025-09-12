@@ -1,17 +1,18 @@
 "use client";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth,db } from "@/lib/firebase/firebaseConfig"
 import Image from "../../../component/Image";
-import UserInput from "../../../component/Input";
+import UserInput from "../../../component/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import CustomButton from "../../../component/CustomButton";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { auth } from "@/firebase/firbaseConfig";
 import { FormEvent } from "react";
+import { Button } from "@/components/ui/button";
+import { doc, setDoc } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const router = useRouter();
 
+const router = useRouter();
   const handleData = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -22,24 +23,37 @@ const Page = () => {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const Repassword = formData.get("Repassword") as string;
+    const agree = formData.get("terms");
+
+if (!agree) {
+  alert("You must agree to the terms");
+  return;
+}
 
     if (password !== Repassword) {
       alert("Passwords do not match");
       return;
     }
-
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+       await setDoc(doc(db, "users", user.uid), {
+        FirstName,
+        LastName,
+        username,
         email,
-        password
-      );
-      console.log("Account created:", userCredential.user);
-      router.push("/signin");
+        createdAt: new Date()
+      });
+       alert("User registered successfully!");
+        router.push("/signin");
+       
+      console.log("User UID:", user.uid);
+
     } catch (error: any) {
-      console.error("Error:", error.message);
-      alert(error.message);
-    }
+  console.error("Error during sign-up:", error.message);
+  alert(error.message);
+}
+    
   };
 
   return (
@@ -98,12 +112,13 @@ const Page = () => {
             />
 
             <div className="flex gap-3 mt-5">
-              <Checkbox className="accent-purple-600" />
-              <p>I agree to all terms</p>
+             <input type="checkbox" name="terms" required className="accent-purple-600" />
+<p>I agree to all terms</p>
             </div>
 
             <div className=" flex justify-start my-3">
-              <CustomButton className="bg-[#FF9090]" text="Register" />
+              
+              <Button className="bg-[#FF9090]">Register</Button>
             </div>
 
             <p>
